@@ -1,0 +1,106 @@
+.lobby {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+
+  .card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    max-width: 400px;
+    width: 100%;
+
+    h1 {
+      margin-top: 0;
+      color: #333;
+      text-align: center;
+    }
+  }
+
+  .input {
+    width: 100%;
+    padding: 12px;
+    margin: 1rem 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+
+    &:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+    }
+  }
+
+  .btn {
+    padding: 12px 24px;
+    margin: 0.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+
+    &.primary {
+      background: #667eea;
+      color: white;
+
+      &:hover:not(:disabled) {
+        background: #5a67d8;
+        transform: translateY(-1px);
+      }
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  .error {
+    color: #e53e3e;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+  }
+
+  .rooms {
+    margin-top: 1.5rem;
+
+    h3 {
+      margin-bottom: 0.5rem;
+      color: #666;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      max-height: 200px;
+      overflow-y: auto;
+
+      li {
+        padding: 0.5rem;
+        background: #f7fafc;
+        margin: 0.25rem 0;
+        border-radius: 4px;
+        transition: background 0.2s;
+
+        &:hover {
+          background: #edf2f7;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .lobby {
+    padding: 1rem;
+
+    .card {
+      padding: 1.5rem;
+    }
+  }
+}

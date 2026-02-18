@@ -1,0 +1,148 @@
+.room {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-bottom: 1px solid #eee;
+
+    h2 {
+      margin: 0;
+      color: #333;
+    }
+
+    .back {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 500;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .messages {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    background: #fafbfc;
+    scroll-behavior: smooth;
+
+    .search {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      box-sizing: border-box;
+
+      &:focus {
+        outline: none;
+        border-color: #667eea;
+      }
+    }
+
+    .msg-group {
+      margin-bottom: 1rem;
+    }
+
+    .msg {
+      padding: 0.75rem;
+      margin-bottom: 0.5rem;
+      border-radius: 8px;
+      background: white;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      animation: fadeIn 0.2s ease;
+
+      strong {
+        display: block;
+        margin-bottom: 0.25rem;
+      }
+
+      .time {
+        font-size: 0.8rem;
+        opacity: 0.7;
+        margin-left: 0.5rem;
+      }
+
+      &.own {
+        background: #667eea;
+        color: white;
+        margin-left: 20%;
+        margin-right: 0;
+
+        strong {
+          color: white;
+        }
+      }
+    }
+  }
+
+  .inputForm {
+    display: flex;
+    padding: 1rem;
+    border-top: 1px solid #eee;
+    background: white;
+
+    .msgInput {
+      flex: 1;
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: 6px 0 0 6px;
+      box-sizing: border-box;
+
+      &:focus {
+        outline: none;
+        border-color: #667eea;
+      }
+    }
+
+    button {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      background: #667eea;
+      color: white;
+      border-radius: 0 6px 6px 0;
+      cursor: pointer;
+      font-weight: 500;
+
+      &:hover:not(:disabled) {
+        background: #5a67d8;
+      }
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .room {
+    .header {
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+    }
+
+    .msg.own {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+  }
+}
